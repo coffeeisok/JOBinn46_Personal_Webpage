@@ -1,0 +1,112 @@
+/* 内容容器：限制最大宽度并居中 */
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* 顶部导航外壳：吸顶 + 半透明毛玻璃 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 247, 250, 0.94);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 页面滚动后强化导航层级与识别度 */
+.site-header.is-scrolled {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 14px rgba(10, 59, 122, 0.12);
+}
+
+/* 导航主布局 */
+.nav {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 导航列表横向排列 */
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 页脚基础布局 */
+.site-footer {
+  padding: 34px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* 页脚两栏：品牌区 + 信息区 */
+.site-footer__content {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* 团队卡片网格：桌面 4 列 */
+.team-grid {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* 平板断点调整 */
+@media (max-width: 900px) {
+  .site-footer__content {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 手机断点：导航切换为折叠菜单 */
+@media (max-width: 680px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .nav__toggle {
+    display: inline-flex;
+  }
+
+  .nav__list {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 8px;
+  }
+
+  .nav.nav--open .nav__list {
+    display: flex;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 小屏手机：团队卡片单列 */
+@media (max-width: 560px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}

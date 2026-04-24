@@ -1,0 +1,150 @@
+/* Hero 区：品牌渐变背景 + 金色光晕 */
+.section--hero {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  align-items: center;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(212, 175, 55, 0.2), transparent 36%),
+    linear-gradient(135deg, #0a3b7a 0%, #0f3460 100%);
+  color: #ffffff;
+}
+
+/* Hero 内容两栏布局 */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/* 英文品牌名/眉题 */
+.hero__kicker {
+  color: #f8dd82;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Hero 主标题 */
+.hero h1 {
+  margin-top: 10px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.18;
+}
+
+/* Hero 副标题 */
+.hero__subtitle {
+  margin-top: 14px;
+  max-width: 56ch;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Hero 核心定位语 */
+.hero__statement {
+  margin-top: 12px;
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Hero 按钮与上文间距 */
+.hero .btn {
+  margin-top: 18px;
+}
+
+/* Hero 右侧 Logo 视觉容器 */
+.hero__image {
+  width: min(320px, 82%);
+  justify-self: end;
+  border-radius: 24px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 30px rgba(8, 19, 36, 0.32);
+}
+
+/* 各 section 主标题风格统一 */
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  color: var(--primary);
+}
+
+/* section 说明性引导文字 */
+.section-lead {
+  color: var(--muted);
+}
+
+/* 关于我们卡片网格 */
+.about-grid {
+  margin-top: 8px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 关于我们单卡片样式 */
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* 卡片小标题 */
+.about-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary-deep);
+}
+
+/* 卡片段落间距 */
+.about-card p + p {
+  margin-top: 8px;
+}
+
+/* 跨列卡片（整行展示） */
+.about-card--full {
+  grid-column: 1 / -1;
+}
+
+/* 组织架构表格横向滚动容器 */
+.org-table-wrap {
+  margin-top: 14px;
+  overflow-x: auto;
+}
+
+/* 组织架构表格主样式 */
+.org-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* 表头与单元格 */
+.org-table th,
+.org-table td {
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  text-align: left;
+}
+
+/* 表头底色 */
+.org-table thead {
+  background: #eff4fb;
+}
+
+/* 平板及以下：Hero 与 about 区改为单列 */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__image {
+    justify-self: start;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

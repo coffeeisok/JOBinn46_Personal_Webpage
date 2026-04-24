@@ -1,0 +1,66 @@
+/* 设计令牌：品牌色、语义色与基础阴影 */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --text: #333333;
+  --muted: #4b5563;
+  --primary: #0a3b7a;
+  --primary-deep: #0f3460;
+  --accent: #d4af37;
+  --accent-deep: #b8860b;
+  --primary-soft: #eaf1fb;
+  --border: #e2e8f0;
+  --shadow: 0 8px 24px rgba(10, 59, 122, 0.12);
+}
+
+/* 全局盒模型重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 保底平滑滚动（具体锚点行为由 JS 控制） */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 页面基础排版与字体栈 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 媒体元素默认行为 */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 防止显式 width/height 的图片变形 */
+img[width][height] {
+  height: auto;
+}
+
+/* 链接默认不加下划线，由组件层决定样式 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 常见文本元素去默认 margin，避免浏览器差异 */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* 全站区块统一上下留白 */
+.section {
+  padding: 92px 0;
+}

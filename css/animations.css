@@ -1,0 +1,65 @@
+/* 区块进入视口前的初始状态 */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* 区块进入视口后的可见状态 */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 页面初始加载遮罩 */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  z-index: 100;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Loader 隐藏态（由 JS 切换） */
+.page-loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Loader 中的 Logo 动画样式 */
+.page-loader__logo {
+  width: 138px;
+  min-width: 120px;
+  padding: 12px;
+  border-radius: 14px;
+  animation: logo-pulse 0.9s ease-in-out infinite alternate;
+}
+
+/* Logo 呼吸动画 */
+@keyframes logo-pulse {
+  from {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(10, 59, 122, 0.15);
+  }
+  to {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(212, 175, 55, 0.28);
+  }
+}
+
+/* 减少动态偏好：关闭大部分动效，提升可访问性 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

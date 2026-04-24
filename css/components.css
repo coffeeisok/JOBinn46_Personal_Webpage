@@ -1,0 +1,165 @@
+/* 导航 Logo 容器：保证安全边距与最小展示尺寸 */
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+/* Logo 图片：保持原始比例，不拉伸 */
+.nav__logo img {
+  width: 132px;
+  object-fit: contain;
+}
+
+/* 移动端菜单按钮 */
+.nav__toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* 导航项：默认态 */
+.nav__item {
+  color: var(--primary-deep);
+  font-size: 0.95rem;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+/* 导航项：悬停/激活态（鎏金） */
+.nav__item:hover,
+.nav__item--active {
+  color: var(--accent-deep);
+  border-color: var(--accent);
+}
+
+/* 通用按钮基础样式 */
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 主按钮皮肤（品牌蓝渐变） */
+.btn--primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+}
+
+/* “了解我们”独立钩子：后续可单独改色，不影响其它按钮 */
+.btn--about {
+  /* Dedicated style hook for the "了解我们" CTA; keep unchanged for now. */
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+}
+
+/* 按钮悬停微动效 */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 59, 122, 0.3);
+}
+
+/* 成员卡片基础样式 */
+.team-card {
+  background: var(--surface);
+  border: 1px solid #8aa6cb;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 卡片激活态：金色描边与光影 */
+.team-card:hover,
+.team-card:focus-visible,
+.team-card--expanded {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* 成员头像占位 */
+.team-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+/* 成员姓名 */
+.team-card__name {
+  margin-top: 12px;
+  font-size: 1.08rem;
+}
+
+/* 成员岗位 */
+.team-card__role {
+  color: var(--primary-deep);
+}
+
+/* 默认展示的 3 个标签 */
+.team-card__tags {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* 展开区域：默认隐藏，激活后展开 */
+.team-card__detail {
+  margin-top: 10px;
+  color: var(--text);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.team-card:hover .team-card__detail,
+.team-card:focus-visible .team-card__detail,
+.team-card--expanded .team-card__detail {
+  max-height: 280px;
+  opacity: 1;
+}
+
+/* 页脚品牌 Logo 与文案样式 */
+.site-footer__brand img {
+  width: 132px;
+  min-width: 120px;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.site-footer__brand-name {
+  margin-top: 10px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.site-footer__slogan {
+  margin-top: 4px;
+  color: var(--accent-deep);
+}
+
+.site-footer__meta p + p {
+  margin-top: 8px;
+}
+
+.site-footer__meta a {
+  color: var(--primary);
+}
