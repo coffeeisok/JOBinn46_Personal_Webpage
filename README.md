@@ -1,7 +1,7 @@
 # 易衡咨询（EpochX）团队官网
 
 >JOBinn46训练营项目页面展示
-网页链接：https://coffeeisok.github.io/Web/
+网页链接：https://coffeeisok.github.io/JOBinn46_Personal_Webpage/
 
 ## 项目简介
 
