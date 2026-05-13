@@ -8,40 +8,58 @@
       content="易衡咨询（EpochX）团队展示官网，包含公司介绍、组织架构与团队成员信息。"
     />
     <title>易衡咨询（EpochX）团队官网</title>
+    
+    <!-- ==================== 样式表引入 ==================== -->
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/components.css" />
     <link rel="stylesheet" href="./css/sections.css" />
     <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/contact.css" /><!-- 新增：联系我们表单样式 -->
+    
+    <!-- ==================== jQuery 引入（考核要求） ==================== -->
+    <!-- 使用 jQuery 3.7.1 CDN，确保表单验证和交互功能可用 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <!-- ==================== JavaScript 模块引入 ==================== -->
     <script defer src="./js/scroll.js"></script>
     <script defer src="./js/nav.js"></script>
     <script defer src="./js/card.js"></script>
     <script defer src="./js/observer.js"></script>
+    <script defer src="./js/validation.js"></script><!-- 新增：表单验证模块 -->
     <script defer src="./js/main.js"></script>
   </head>
   <body>
+    <!-- ==================== 页面加载动画 ==================== -->
     <div class="page-loader" id="page-loader" aria-hidden="true">
       <img class="page-loader__logo" src="./images/logo.jpeg" alt="易衡咨询 Logo" />
     </div>
 
+    <!-- ==================== 顶部导航栏 ==================== -->
     <header class="site-header" id="top">
       <nav class="nav container" aria-label="主导航">
+        <!-- 导航栏 Logo，点击返回页面顶部 -->
         <a class="nav__logo" href="#top" aria-label="返回顶部">
           <img src="./images/logo.jpeg" alt="易衡咨询（EpochX）官方Logo" width="132" height="44" />
         </a>
+        <!-- 移动端菜单切换按钮 -->
         <button class="nav__toggle" aria-label="打开导航菜单" aria-expanded="false">
           菜单
         </button>
+        <!-- 导航链接列表 -->
         <ul class="nav__list">
           <li><a class="nav__item nav__item--active" href="#hero">首页</a></li>
           <li><a class="nav__item" href="#about">关于我们</a></li>
           <li><a class="nav__item" href="#org">组织架构</a></li>
           <li><a class="nav__item" href="#team">团队成员</a></li>
+          <li><a class="nav__item" href="#contact">联系我们</a></li><!-- 新增：联系我们导航链接 -->
         </ul>
       </nav>
     </header>
 
     <main>
+      <!-- ==================== 首页/Hero 区域 ==================== -->
+      <!-- 品牌主视觉区，展示易衡咨询核心定位 -->
       <section class="section section--hero reveal" id="hero" aria-labelledby="hero-title">
         <div class="container hero">
           <div class="hero__content">
@@ -65,21 +83,25 @@
         </div>
       </section>
 
+      <!-- ==================== 关于我们区域 ==================== -->
+      <!-- 介绍易衡咨询的品牌释义、愿景使命和关注方向 -->
       <section class="section reveal" id="about" aria-labelledby="about-title">
         <div class="container">
           <h2 id="about-title">关于我们</h2>
           <div class="about-grid">
+            <!-- 品牌释义卡片 -->
             <article class="about-card">
               <h3>品牌释义</h3>
               <p><strong>中文名：</strong>易衡咨询</p>
               <p><strong>英文名：</strong>EpochX</p>
               <p>
-                “易”强调顺应时代变革、洞悉周期流变；“衡”强调平衡组织架构、人才机制与长期发展。
+                "易"强调顺应时代变革、洞悉周期流变；"衡"强调平衡组织架构、人才机制与长期发展。
               </p>
               <p>
-                “Epoch”代表时代拐点与商业迭代，“X”代表无限可能、跨界探索与创新突破。
+                "Epoch"代表时代拐点与商业迭代，"X"代表无限可能、跨界探索与创新突破。
               </p>
             </article>
+            <!-- 愿景使命卡片 -->
             <article class="about-card">
               <h3>愿景与使命</h3>
               <p><strong>使命：</strong>为人才立心，为组织立命，为企业开长效，为社会致进步。</p>
@@ -89,6 +111,7 @@
               </p>
               <p><strong>价值观：</strong>客户为本 | 守正笃行 | 精进务实 | 兼容并蓄 | 致远恒行</p>
             </article>
+            <!-- 关注方向卡片（跨列展示） -->
             <article class="about-card about-card--full">
               <h3>关注方向</h3>
               <p>
@@ -99,12 +122,15 @@
         </div>
       </section>
 
+      <!-- ==================== 组织架构区域 ==================== -->
+      <!-- 以表格形式展示团队组织结构和职能分工 -->
       <section class="section reveal" id="org" aria-labelledby="org-title">
         <div class="container">
           <h2 id="org-title">组织架构</h2>
           <p class="section-lead">
-            团队形成“决策—业务—运营—支撑”的完整闭环，分工清晰、协同高效。
+            团队形成"决策—业务—运营—支撑"的完整闭环，分工清晰、协同高效。
           </p>
+          <!-- 组织架构表格容器 -->
           <div class="org-table-wrap">
             <table class="org-table">
               <thead>
@@ -170,10 +196,13 @@
         </div>
       </section>
 
+      <!-- ==================== 团队成员区域 ==================== -->
+      <!-- 展示团队核心成员卡片，可交互展开查看详情 -->
       <section class="section reveal" id="team" aria-labelledby="team-title">
         <div class="container">
           <h2 id="team-title">团队成员</h2>
           <div class="team-grid">
+            <!-- 成员卡片：可点击/聚焦展开查看详情 -->
             <article class="team-card" tabindex="0">
               <div class="team-card__avatar" aria-hidden="true">杨</div>
               <h3 class="team-card__name">杨鸿康</h3>
@@ -249,17 +278,169 @@
           </div>
         </div>
       </section>
+
+      <!-- ==================== 联系我们区域（含表单验证）==================== -->
+      <!-- 提供咨询表单，包含 jQuery 实现的前端表单验证功能 -->
+      <section class="section reveal" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <h2 id="contact-title">联系我们</h2>
+          <p class="section-lead">
+            如有咨询需求，请填写下方表单，我们将在24小时内与您取得联系。
+          </p>
+          
+          <!-- 联系表单容器 -->
+          <div class="contact-wrapper">
+            <!-- 表单主体：包含所有输入项和验证逻辑 -->
+            <form id="contact-form" class="contact-form" novalidate>
+              <!-- 表单提示区域：显示错误或成功信息 -->
+              <div id="form-message" class="form-message" aria-live="polite"></div>
+              
+              <!-- 姓名输入框：必填，2-20个字符 -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">
+                  姓名 <span class="required-mark">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  class="form-input" 
+                  placeholder="请输入您的姓名"
+                  required
+                  minlength="2"
+                  maxlength="20"
+                  autocomplete="name"
+                />
+                <span class="form-error" id="name-error"></span>
+              </div>
+              
+              <!-- 邮箱输入框：必填，邮箱格式验证 -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label">
+                  邮箱 <span class="required-mark">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="请输入您的电子邮箱"
+                  required
+                  autocomplete="email"
+                />
+                <span class="form-error" id="email-error"></span>
+              </div>
+              
+              <!-- 电话输入框：必填，11位手机号验证 -->
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">
+                  电话 <span class="required-mark">*</span>
+                </label>
+                <input 
+                  type="tel" 
+                  id="contact-phone" 
+                  name="phone" 
+                  class="form-input" 
+                  placeholder="请输入11位手机号码"
+                  required
+                  pattern="1[3-9]\d{9}"
+                  autocomplete="tel"
+                />
+                <span class="form-error" id="phone-error"></span>
+              </div>
+              
+              <!-- 咨询类型下拉选择：必选 -->
+              <div class="form-group">
+                <label for="contact-type" class="form-label">
+                  咨询类型 <span class="required-mark">*</span>
+                </label>
+                <select 
+                  id="contact-type" 
+                  name="type" 
+                  class="form-select"
+                  required
+                >
+                  <option value="">请选择咨询类型</option>
+                  <option value="org">组织架构优化</option>
+                  <option value="talent">人才机制升级</option>
+                  <option value="ai">AI效能赋能</option>
+                  <option value="other">其他咨询</option>
+                </select>
+                <span class="form-error" id="type-error"></span>
+              </div>
+              
+              <!-- 留言文本域：选填，最多200字 -->
+              <div class="form-group">
+                <label for="contact-message" class="form-label">
+                  留言 <span class="optional-mark">(选填)</span>
+                </label>
+                <textarea 
+                  id="contact-message" 
+                  name="message" 
+                  class="form-textarea" 
+                  placeholder="请简要描述您的咨询需求（最多200字）"
+                  maxlength="200"
+                  rows="4"
+                ></textarea>
+                <span class="form-hint" id="message-hint">0 / 200</span>
+              </div>
+              
+              <!-- 提交按钮 -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--submit">
+                  提交咨询
+                </button>
+                <button type="reset" class="btn btn--reset">
+                  重置表单
+                </button>
+              </div>
+            </form>
+            
+            <!-- 侧边联系信息 -->
+            <div class="contact-info">
+              <h3>其他联系方式</h3>
+              <div class="contact-info__item">
+                <span class="contact-info__icon">📧</span>
+                <div>
+                  <strong>邮箱</strong>
+                  <a href="mailto:3366257117@qq.com">3366257117@qq.com</a>
+                </div>
+              </div>
+              <div class="contact-info__item">
+                <span class="contact-info__icon">⏰</span>
+                <div>
+                  <strong>响应时间</strong>
+                  <p>工作日 9:00 - 18:00</p>
+                </div>
+              </div>
+              <div class="contact-info__item">
+                <span class="contact-info__icon">💬</span>
+                <div>
+                  <strong>服务说明</strong>
+                  <p>我们将在24小时内回复您的咨询</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- ==================== 页脚 ==================== -->
+    <!-- 包含品牌信息、联系方式和版权声明 -->
     <footer class="site-footer">
       <div class="container site-footer__content">
+        <!-- 品牌区域：点击Logo可使用 jQuery 动画回到顶部 -->
         <div class="site-footer__brand">
-          <img src="./images/logo.jpeg" alt="易衡咨询（EpochX）官方Logo" width="132" height="44" />
+          <a href="#top" class="back-to-top" aria-label="回到页面顶部">
+            <img src="./images/logo.jpeg" alt="易衡咨询（EpochX）官方Logo" width="132" height="44" />
+          </a>
           <p class="site-footer__brand-name">易衡咨询（EpochX）</p>
           <p class="site-footer__slogan">易启新纪，衡筑长青</p>
         </div>
+        <!-- 联系信息区域 -->
         <div class="site-footer__meta">
-          <p><strong>联系邮箱：</strong><a href="mailto:hank89757@126.com">hank89757@126.com</a></p>
+          <p><strong>联系邮箱：</strong><a href="mailto:3366257117@qq.com">3366257117@qq.com</a></p>
           <p>我们的专业团队将为您提供及时、周到的咨询服务。</p>
           <p>© 2026 EpochX Consulting. All Rights Reserved.</p>
         </div>
